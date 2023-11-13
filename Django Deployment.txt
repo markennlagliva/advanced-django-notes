@@ -1,0 +1,31 @@
+Django Deployment Configuration-> FE
+
+Debug = False
+vercel.json = {
+    "builds": [{
+        "src": "projectname/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "projectname/wsgi.py"
+        }
+    ]
+}
+
+requirement.txt = pip freeze > requirement.txt
+
+wsgi.py -> app = application
+
+#settings.py 
+import os
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+python3 manage.py collectstatic
