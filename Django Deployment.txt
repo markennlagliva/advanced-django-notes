@@ -39,3 +39,10 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
+
+# use Django AllAuth and have it handle login, signup and
+verification of emails (by adding the ACCOUNT_EMAIL_VERIFICATION = True
+setting). You can then also get social authentication and have it work more
+seamlessly.
+
+ACCOUNT_EMAIL_VERIFICATION = True 
