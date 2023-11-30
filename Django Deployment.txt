@@ -1,6 +1,11 @@
 Django Deployment Configuration-> FE
 
 Debug = False
+
+Install whitenoise
+add -> installed_apps, 
+MiddleWare -> 'whitenoise.middleware.WhiteNoiseMiddleware',
+
 vercel.json = {
     "builds": [{
         "src": "projectname/wsgi.py",
